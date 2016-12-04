@@ -1,10 +1,12 @@
 var koa = require('koa');
 var app = koa();
+var config = require('./config/config.js')
+var wechat = require('./wechat/g.js')
 
-app.use(function* (){
-  this.body = 'hello 啊啊'
-})
+var weixin = require('./weixin.js')
 
-app.listen(3000)
+app.use(wechat(config.wechat, weixin.reply))
 
-console.log('listening 3000')
+app.listen(1234)
+
+console.log('listening 1234')
