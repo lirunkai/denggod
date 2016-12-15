@@ -1,0 +1,141 @@
+<%- include('header') %>
+  <form action="/message/state/<%= infoShopNum %>" method="post">
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <h4 class="weui-cell__hd">订单信息</h4>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>订单编号</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoShopNum %>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>提交订单时间</p>
+      </div>
+      <div class="weui-cell__ft"><%= infoCreateTime%></div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>借款人</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoname %>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>借款人身份证号</p>
+      </div>
+      <div class="weui-cell__ft"><%= infocard %></div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>订单状态</p>
+      </div>
+      <div class="weui-cell__ft">
+        <select name="infoState">
+          <% if (infoState == '进行中') { %>
+            <option value="进行中" selected="selected">进行中</option>
+            <option value="待还款">待还款</option>
+            <option value="已结清">已结清</option>
+            <option value="已失效">已失效</option>
+          <% } else if (infoState == '待还款'){ %>
+            <option value="进行中">进行中</option>
+            <option value="待还款" selected="selected">待还款</option>
+            <option value="已结清">已结清</option>
+            <option value="已失效">已失效</option>
+          <% } else if (infoState == '已结清'){ %>
+            <option value="进行中">进行中</option>
+            <option value="待还款">待还款</option>
+            <option value="已结清" selected="selected">已结清</option>
+            <option value="已失效">已失效</option>
+          <% } else if (infoState == '已失效'){ %>
+            <option value="进行中">进行中</option>
+            <option value="待还款">待还款</option>
+            <option value="已结清">已结清</option>
+            <option value="已失效" selected="selected">已失效</option>
+          <% } %>
+        </select>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>签约机构</p>
+      </div>
+      <div class="weui-cell__ft"><%= infocode %></div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <h4 class="weui-cell__hd">借款信息</h4>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>初评申请金额</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoloan %>万元
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>房产证号</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoHomeNumber %>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>抵押顺位</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoDiYa %>
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <h4 class="weui-cell__hd">初评结果</h4>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>初评结果</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoResult %>
+        <select name="infoResult">
+          <% if(infoResult == '审核中'){ %>
+            <option value="审核中" selected="selected">审核中</option>
+            <option value="通过">通过</option>
+            <option value="拒绝">拒绝</option>
+          <% } else if(infoResult == '通过'){ %>
+            <option value="审核中">审核中</option>
+            <option value="通过" selected="selected">通过</option>
+            <option value="拒绝">拒绝</option>
+          <% } else if(infoResult == '拒绝'){ %>
+            <option value="审核中">审核中</option>
+            <option value="通过">通过</option>
+            <option value="拒绝" selected="selected">拒绝</option>
+          <% } %>
+        </select>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>原因</p>
+      </div>
+      <div class="weui-cell__ft">
+        <input type="text" name="infoReason" placeholder="请输入原因"/>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <input type="submit" value="保存" class="weui-btn weui-btn_primary"/>
+    </div>
+  </div>
+</form>
+<%- include('footer') %>

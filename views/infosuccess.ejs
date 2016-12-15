@@ -1,0 +1,28 @@
+<%- include('header') %>
+<div class="weui-msg">
+      <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+      <div class="weui-msg__text-area">
+          <h2 class="weui-msg__title">操作成功</h2>
+          <p class="weui-msg__desc">订单号:
+            <a href="javascript:void(0);"><%= infoShopNum %></a>
+          </p>
+          <p class="weui-msg__desc">
+            2小时给你反馈
+          </p>
+      </div>
+      <div class="weui-msg__opr-area">
+          <p class="weui-btn-area">
+              <a href="/showinfo/<%= infoShopNum %>" class="weui-btn weui-btn_primary">查看订单</a>
+              <a href="/home" class="weui-btn weui-btn_default">返回首页</a>
+          </p>
+      </div>
+      <div class="weui-msg__extra-area">
+          <div class="weui-footer">
+              <p class="weui-footer__links">
+                  <a href="javascript:void(0);" class="weui-footer__link">融意贷</a>
+              </p>
+              <p class="weui-footer__text">客服电话:1234567</p>
+          </div>
+      </div>
+  </div>
+<%- include('footer') %>

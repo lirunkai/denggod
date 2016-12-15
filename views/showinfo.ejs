@@ -1,0 +1,97 @@
+<%- include('header') %>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <h4 class="weui-cell__hd">订单信息</h4>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>订单编号</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoShopNum %>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>提交订单时间</p>
+      </div>
+      <div class="weui-cell__ft"><%= infoCreateTime%></div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>借款人</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoname %>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>借款人身份证号</p>
+      </div>
+      <div class="weui-cell__ft"><%= infocard %></div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>订单状态</p>
+      </div>
+      <div class="weui-cell__ft"><%= infoState %></div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>签约机构</p>
+      </div>
+      <div class="weui-cell__ft"><%= infocode %></div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <h4 class="weui-cell__hd">借款信息</h4>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>初评申请金额</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoloan %>万元
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>房产证号</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoHomeNumber %>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>抵押顺位</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoDiYa %>
+      </div>
+    </div>
+  </div>
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <h4 class="weui-cell__hd">初评结果</h4>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>初评结果</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoResult %>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>原因</p>
+      </div>
+      <div class="weui-cell__ft">
+        <%= infoReason %>
+      </div>
+    </div>
+  </div>
+<%- include('footer') %>

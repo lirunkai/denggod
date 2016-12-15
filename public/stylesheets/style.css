@@ -1,0 +1,27 @@
+body{
+  background-color: #f8f8f8;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+div{
+  display: block;
+}
+.text_ltr{
+  text-align:right;
+}
+
+.text_center{
+  text-align:center;
+}
+
+.page{
+  padding-top:5px;
+}
+
+.nav{
+  background-color: #fff;
+}
+
+.nav_active{
+  border-bottom:1px solid #08d0f1;
+  color:#08d0f1;
+}

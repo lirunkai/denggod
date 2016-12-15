@@ -1,0 +1,106 @@
+<%- include('header') %>
+  <form action="/infoin" method="post">
+    <p class="text_center">填写贷款信息</p>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__hd">
+            <label class="weui-label">借款人姓名</label>
+          </div>
+          <div class="weui-cell__bd">
+            <input type="text" class="weui-input text_ltr" name="infoname"/>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd">
+            <label class="weui-label">身份证号</label>
+          </div>
+          <div class="weui-cell__bd">
+            <input type="number" class="weui-input text_ltr" name="infocard"/>
+          </div>
+        </div>
+    </div>
+    <div class="weui-cells">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">机构代码</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input type="text" placeholder="请输入机构代码" name="infocode" class="weui-input text_ltr"/>
+        </div>
+      </div>
+    </div>
+    <div class="weui-cells">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">贷款金额</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input type="number" class="weui-input text_ltr" name="infoloan" />
+        </div>
+        <div class="weui-cell_ft">
+          <p>万元</p>
+        </div>
+      </div>
+    </div>
+    <div class="weui-cells">
+      <div class="weui-gallery" id="gallery">
+        <span class="weui-gallery__img" id="galleryImg"></span>
+        <div class="weui-gallery__opr">
+            <a href="javascript:" class="weui-gallery__del">
+                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+            </a>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <div class="weui-uploader">
+            <div class="weui-uploader__hd">
+              <p class="weui-uploader__title">上传房产证照片</p>
+            </div>
+            <div class="weui-uploader__bd">
+              <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+              <div class="weui-uploader__input-box">
+                <input type="file" id="uploaderInput" class="weui-uploader__input" name="infofile" accept="image/*" multiple/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-cells">
+      <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+          <label class="weui-label">房产证类型</label>
+        </div>
+        <div class="weui-cell__bd">
+          <select name="infoHomeType" class="weui-select">
+            <option value="旧版">旧版</option>
+            <option value="新版">新版</option>
+          </select>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">房产证号</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input type="text" class="weui-input text_ltr" name="infoHomeNumber"/>
+        </div>
+      </div>
+      <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+          <label class="weui-label">抵押顺位</label>
+        </div>
+        <div class="weui-cell__bd">
+          <select name="infoDiYa" class="weui-select">
+            <option value="一抵">一抵</option>
+            <option value="二抵">二抵</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="weui-btn-area">
+      <input  type="submit" class="weui-btn weui-btn_disabled weui-btn_default" value="确定提交"/>
+    </div>
+  </form>
+<%- include('footer') %>
