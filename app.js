@@ -34,8 +34,8 @@ app.use(session({
     maxAge: 2592000000// 过期时间，过期后 cookie 中的 session id 自动删除
   },
   store: new MongoStore({// 将 session 存储到 mongodb
-    //url: 'mongodb://root:Kongxi521@dds-2ze41b282c55fcc41.mongodb.rds.aliyuncs.com:3717,dds-2ze41b282c55fcc42.mongodb.rds.aliyuncs.com:3717/admin?replicaSet=mgset-2482227'
-     url: 'mongodb://localhost:27017/bobo'// mongodb 地址
+    url: 'mongodb://root:Kongxi521@dds-2ze41b282c55fcc41.mongodb.rds.aliyuncs.com:3717,dds-2ze41b282c55fcc42.mongodb.rds.aliyuncs.com:3717/admin?replicaSet=mgset-2482227'
+    // url: 'mongodb://localhost:27017/bobo'// mongodb 地址
   })
 }));
 // flash 中间价，用来显示通知
