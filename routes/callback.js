@@ -8,7 +8,7 @@ var client = new OAuth('wx60aeb0c0c8970d98','1fcf6b499cd23fc65bb881a410799afa');
 router.get('/',function(req, res){
   var code = req.query.code;
   console.log('code-----'+code);
-  client.getAccessToke(code,function(err, result){
+  client.getAccessToken(code,function(err, result){
     if( err ){
       console.log('err-------'+err);
       return res.redirect('/')
