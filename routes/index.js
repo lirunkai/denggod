@@ -5,4 +5,5 @@ module.exports = function(app){
   app.use('/home', require('./home.js'));
   app.use('/infoin', require('./infoin.js'));
   app.use('/showinfo',require('./showinfo.js'));
+  app.use('/MP_verify_5HnpAPvqQPxCRBjv',require('./MP_verify_5HnpAPvqQPxCRBjv.js'))
 };
