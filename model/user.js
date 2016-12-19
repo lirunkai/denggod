@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
   username: String,
   phone: String
-  //openId: String
+  openid: String
 })
 
 var UserModel = db.model('User',UserSchema);
