@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require('../model/user')
 var OAuth = require('wechat-oauth');
 
-var client = new OAuth('wx60aeb0c0c8970d98','cae9z13dccd05d8786abdeeb29b6b152');
+var client = new OAuth('wx60aeb0c0c8970d98','1fcf6b499cd23fc65bb881a410799afa');
 
 // router.get('/', function(req, res){
 //   res.redirect('/callback');
