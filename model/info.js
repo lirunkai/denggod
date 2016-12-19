@@ -16,7 +16,7 @@ var InfoSchema = new Schema({
   infoCreateTime: String,
   infoState: String,
   infoReason: String,
-  phone: String,
+  openid: String,
   infoResult: String
 })
 

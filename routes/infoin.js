@@ -9,13 +9,13 @@ router.get('/', function(req, res, next){
 })
 
 router.post('/', function(req, res, next){
-  var phone = req.session.phone;
-  console.log(phone+'-----phone')
+  var openid = req.session.openid;
+  console.log(openid+'-----openid')
   var count = new Date();
   var infoShopNum = count.getTime();
   var infoCreateTime = count.getFullYear()+'-'+(count.getMonth()+1)+'-'+count.getDate();
   var info = new Info({
-    //openId:  req.body.openId,
+    openid:  openid,
     infoname: req.body.infoname,
     infocard: req.body.infocard,
     infocode: req.body.infocode,
@@ -28,7 +28,6 @@ router.post('/', function(req, res, next){
     infoCreateTime: infoCreateTime,
     infoState: '进行中',
     infoReason: '正在处理',
-    phone: phone,
     infoResult: '审核中'
   })
   info.save(function(err){
@@ -41,7 +40,7 @@ router.post('/', function(req, res, next){
 })
 
 router.get('/success', function (req, res, next) {
-  Info.find({phone: req.session.phone},null,{sort:{infoCreateTime:-1},limit:1},function(err,content){
+  Info.find({openid: req.session.openid},null,{sort:{infoCreateTime:-1},limit:1},function(err,content){
     if(err){
       req.flash('error',err)
       res.redirect('/home')

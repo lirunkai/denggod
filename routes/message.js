@@ -14,9 +14,9 @@ router.get('/',function(req,res){
 })
 
 router.get('/:id',function(req,res){
-  var phone = req.params.id;
-  console.log(phone);
-  Info.find({phone:phone},function(err, docs){
+  var openid = req.params.id;
+  console.log(openid);
+  Info.find({openid:openid},function(err, docs){
     if(err){
       console.log(err)
     } else {
