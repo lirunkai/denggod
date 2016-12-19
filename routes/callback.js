@@ -8,7 +8,10 @@ var client = new OAuth('wx60aeb0c0c8970d98','cae9z13dccd05d8786abdeeb29b6b152');
 router.get('/',function(req, res){
   var code = req.query.code;
   client.getAccessToken(code,function(err, result){
-    console.log('err--------'+err);
+    if( err ){
+      console.log('err-------'+err);
+      return res.redirect('/')
+    } else {
     var openid = result.data.openid;
       console.log('openid----'+openid)
       User.find({openid: openid},function(err, content){
@@ -25,6 +28,7 @@ router.get('/',function(req, res){
           }
         }
       })
+    }
     })
   })
 
