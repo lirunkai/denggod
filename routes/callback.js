@@ -11,24 +11,22 @@ router.get('/',function(req, res){
     console.log('err--------'+err);
     var openid = result.data.openid;
       console.log('openid----'+openid)
-        User.find({openid: openid},function(err, content){
-          if( err ){
-            req.flash('error', err)
-            return res.redirect('/')
+      User.find({openid: openid},function(err, content){
+        if( err ){
+          req.flash('error', err)
+          return res.redirect('/')
+        } else {
+          if ( content.length === 0 ) {
+            req.session.openid = openid;
+            res.render('index');
           } else {
-            if ( content.length === 0 ) {
-              req.session.openid = openid;
-              res.render('index');
-            } else {
-              req.session.openid = openid;
-              return res.redirect('/home');
-            }
-        })
+            req.session.openid = openid;
+            return res.redirect('/home');
+          }
+        }
+      })
+    })
   })
-    //req.session.phone = null;
-    //res.render('index')
-  }
-})
 
 
 router.post('/', function(req, res) {
