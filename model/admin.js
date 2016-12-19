@@ -11,7 +11,7 @@ var AdminSchema = new Schema({
 var AdminModel = db.model('Admin',AdminSchema);
 
 var info = {
-  username: 'haoweijituan888@163.com';
+  username: 'haoweijituan888@163.com',
   pass: 'haoweijituan2008'
 }
 
