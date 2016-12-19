@@ -4,6 +4,7 @@ var db = require('./db.js');
 var Schema = mongoose.Schema;
 
 var InfoSchema = new Schema({
+  infotype: String,
   infoname: String,
   infocard: Number,
   infocode: String,

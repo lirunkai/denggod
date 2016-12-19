@@ -17,6 +17,7 @@ router.post('/',function(req,res){
       if( docs.length === 0){
         return res.redirect('/login')
       } else {
+        req.session.username = username;
         return res.redirect('/message');
       }
     }

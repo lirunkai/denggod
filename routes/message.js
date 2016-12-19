@@ -3,19 +3,32 @@ var router = express.Router();
 var User = require('../model/user.js');
 var Info = require('../model/info.js');
 
+function getUser(req){
+  var username = req.session.username;
+  if( username === 'haoweijituan888@163.com' ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 router.get('/',function(req,res){
-  User.find({},function(err,docs){
-    if(err){
-      console.log(err)
-    } else {
-      res.render('message',{docs:docs})
-    }
-  })
+  if( getUser(req) ) {
+    User.find({},function(err,docs){
+      if(err){
+        console.log(err)
+      } else {
+        res.render('message',{docs:docs})
+      }
+    })
+  } else {
+    return res.redirect('/login')
+  }
+
 })
 
 router.get('/:id',function(req,res){
   var openid = req.params.id;
-  console.log(openid);
   Info.find({openid:openid},function(err, docs){
     if(err){
       console.log(err)
