@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
       console.log(err)
     } else {
       if ( docs.length === 0 ){
-        return res.redirect('/')
+        return res.redirect('/infoin')
       } else {
         console.log(docs)
         res.render('home',{docs:docs})
