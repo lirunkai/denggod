@@ -1,0 +1,27 @@
+<%- include('header') %>
+    <form method="post" action="/login">
+      <div class="js-sign_show">
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">用户名</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input type="text" name="username" class="weui-input text_ltr js-sign_username" placeholder="请输入用户名"/>
+            </div>
+          </div>
+          <div class="weui-cell">
+            <div class="weui-cell__hd">
+              <label class="weui-label">密码</label>
+            </div>
+            <div class="weui-cell__bd">
+              <input type="number" pattern="[0-9]{11}" name="phone" placeholder="请输入手机号" class="js-sign_phone weui-input text_ltr"/>
+            </div>
+          </div>
+        </div>
+        <div class="weui-btn-area">
+          <input type="submit" class="weui-btn weui-btn_primary" value="注册" />
+        </div>
+      </div>
+    </form>
+<%- include('footer')%>
