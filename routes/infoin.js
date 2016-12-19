@@ -5,7 +5,12 @@ var multer = require('multer')
 
 
 router.get('/', function(req, res, next){
-  res.render('infoin')
+  if( req.session.openid ) {
+    res.render('infoin')
+  } else {
+    return res.redirect('/')
+  }
+
 })
 
 router.post('/', function(req, res, next){

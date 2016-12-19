@@ -10,8 +10,12 @@ router.get('/', function(req, res, next) {
     if( err ) {
       console.log(err)
     } else {
-      console.log(docs)
-      res.render('home',{docs:docs})
+      if ( docs.length === 0 ){
+        return res.redirect('/')
+      } else {
+        console.log(docs)
+        res.render('home',{docs:docs})
+      }
     }
   })
 });
