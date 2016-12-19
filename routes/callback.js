@@ -1,26 +1,30 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../model/user')
+var OAuth = require('wechat-oauth');
+
+var client = new OAuth('wx60aeb0c0c8970d98','cae9z13dccd05d8786abdeeb29b6b152');
 
 router.get('/',function(req, res){
-  var openid = req.session.openid;
-  if( req.session.openid ){
-    return res.redirect('/home')
-  } else {
-    User.find({openid: openid},function(err, content){
-      if( err ){
-        req.flash('error', err)
-        return res.redirect('/')
-      } else {
-        if ( content.length === 0 ) {
-          req.session.openid = openid;
-          res.render('index');
-        } else {
-          req.session.openid = openid;
-          return res.redirect('/home');
-        }
-      }
-    })
+  var code = req.query.code;
+  client.getAccessToken(code,function(err, result){
+    console.log('err--------'+err);
+    var openid = result.data.openid;
+      console.log('openid----'+openid)
+        User.find({openid: openid},function(err, content){
+          if( err ){
+            req.flash('error', err)
+            return res.redirect('/')
+          } else {
+            if ( content.length === 0 ) {
+              req.session.openid = openid;
+              res.render('index');
+            } else {
+              req.session.openid = openid;
+              return res.redirect('/home');
+            }
+        })
+  })
     //req.session.phone = null;
     //res.render('index')
   }
