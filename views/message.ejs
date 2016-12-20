@@ -3,13 +3,13 @@
 <% docs.forEach(function(doc){%>
   <div class="weui-cells">
     <div class="weui-cell">
-      <p><%= doc.username%></p>
+      <p style="text-align:center"><%= doc.username%></p>
     </div>
     <div class="weui-cell">
         <a class="weui-btn weui-btn_plain-primary" href="/message/<%= doc.openid %>">
           查看订单
         </a>
-        <a class="weui-btn weui-btn_plain-primary" href="/delete/user/<%= doc.openid %>">
+        <a class="weui-btn weui-btn_warn" href="/delete/user/<%= doc.openid %>">
           删除用户
         </a>
     </div>
