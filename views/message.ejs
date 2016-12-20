@@ -3,15 +3,19 @@
 <% docs.forEach(function(doc){%>
   <div class="weui-cells">
     <div class="weui-cell weui-flex">
-      <p class="weui-flex__item"><%= doc.username%></p>
+      <p class="weui-flex__item" style="text-align:center;"><%= doc.username%></p>
     </div>
     <div class="weui-cell weui-flex">
-        <a class="weui-btn weui-btn_plain-primary weui-flex__item" href="/message/<%= doc.openid %>">
+      <div class="weui-flex__item">
+        <a class="weui-btn weui-btn_primary" href="/message/<%= doc.openid %>">
           查看订单
         </a>
-        <a class="weui-btn weui-btn_warn weui-flex__item" href="/delete/user/<%= doc.openid %>">
+      </div>
+      <div class="weui-flex__item">
+        <a class="weui-btn weui-btn_warn" href="/delete/user/<%= doc.openid %>">
           删除用户
         </a>
+      </div>
     </div>
   </div>
 <% }) %>
