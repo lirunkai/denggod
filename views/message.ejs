@@ -6,16 +6,12 @@
       <p><%= doc.username%></p>
     </div>
     <div class="weui-cell">
-      <div class="weui-cell__hd">
         <a class="weui-btn weui-btn_plain-primary" href="/message/<%= doc.openid %>">
           查看订单
         </a>
-      </div>
-      <div class="weui-cell__bd">
-        <a class="weui-btn weui-btn_plain-primary" href="/delete/user/<%= doc.phone %>">
+        <a class="weui-btn weui-btn_plain-primary" href="/delete/user/<%= doc.openid %>">
           删除用户
         </a>
-      </div>
     </div>
   </div>
 <% }) %>

@@ -12,6 +12,7 @@ router.get('/:shopId', function(req, res, next){
       console.log(content[0]);
       var oneCon = content[0];
       var info = {
+        infoarea: oneCon.infoarea,
         infotype: oneCon.infotype,
         infoname: oneCon.infoname,
         infocard: oneCon.infocard,

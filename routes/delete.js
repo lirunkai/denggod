@@ -5,7 +5,7 @@ var User = require('../model/user.js');
 
 router.get('/user/:id',function(req,res){
   var openid = req.params.id;
-  User.remove({phone:openid},function(err,docs){
+  User.remove({openid:openid},function(err,docs){
     return res.redirect('/message')
   })
 })
