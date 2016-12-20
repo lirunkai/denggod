@@ -2,9 +2,21 @@
 
 <% docs.forEach(function(doc){%>
   <div class="weui-cells">
-    <a class="weui-cell" href="/message/<%= doc.openid %>">
-      <%= doc.username %>
-    </a>
+    <div class="weui-cell">
+      <p><%= doc.username%></p>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd">
+        <a class="weui-btn weui-btn_plain-primary" href="/message/<%= doc.openid %>">
+          查看订单
+        </a>
+      </div>
+      <div class="weui-cell__bd">
+        <a class="weui-btn weui-btn_plain-primary" href="/delete/user/<%= doc.phone %>">
+          删除用户
+        </a>
+      </div>
+    </div>
   </div>
 <% }) %>
 

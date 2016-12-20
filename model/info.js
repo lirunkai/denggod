@@ -18,7 +18,8 @@ var InfoSchema = new Schema({
   infoState: String,
   infoReason: String,
   openid: String,
-  infoResult: String
+  infoResult: String,
+  infoarea: String
 })
 
 var InfoModel = db.model('Info',InfoSchema);

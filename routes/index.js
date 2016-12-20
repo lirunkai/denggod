@@ -6,5 +6,6 @@ module.exports = function(app){
   app.use('/infoin', require('./infoin.js'));
   app.use('/showinfo',require('./showinfo.js'));
   app.use('/MP_verify_5HnpAPvqQPxCRBjv.txt',require('./MP_verify_5HnpAPvqQPxCRBjv.js'))
-  app.use('/login',require('./login.js'))
+  app.use('/login',require('./login.js'));
+  app.use('/delete',require('./delete.js'))
 };

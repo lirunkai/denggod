@@ -21,6 +21,7 @@ router.post('/', function(req, res, next){
   var infoCreateTime = count.getFullYear()+'-'+(count.getMonth()+1)+'-'+count.getDate();
   var info = new Info({
     openid:  openid,
+    infoarea: req.body.infoarea,
     infoname: req.body.infoname,
     infocard: req.body.infocard,
     infocode: req.body.infocode,
