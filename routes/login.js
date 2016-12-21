@@ -15,12 +15,16 @@ router.post('/',function(req,res){
       return res.redirect('/')
     } else {
       if( docs.length === 0){
+        console.log(docs.length)
         return res.redirect('/login')
       } else {
         if (docs[0].pass === pass){
-          req.session.username = username;
+          console.log('pass-----'+pass);
+          console.log('docspass------'+pass);
           return res.redirect('/message');
         } else {
+          console.log('passerr-----'+pass);
+          console.log('docspasserr------'+pass);
           return res.redirect('/login')
         }
       }
