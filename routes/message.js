@@ -24,8 +24,9 @@ router.get('/',function(req,res){
   } else {
     return res.redirect('/login')
   }
-
 })
+
+
 
 router.get('/:id',function(req,res){
   var openid = req.params.id;

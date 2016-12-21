@@ -22,6 +22,7 @@ router.post('/',function(req,res){
         if (docs[0].pass === pass){
           console.log('pass-----'+pass);
           console.log('docspass------'+pass);
+          req.session.username = username;
           return res.redirect('/message');
         } else {
           console.log('passerr-----'+pass);
