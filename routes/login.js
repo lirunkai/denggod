@@ -18,7 +18,7 @@ router.post('/',function(req,res){
         console.log(docs.length)
         return res.redirect('/login')
       } else {
-        console.log(docs)
+        console.log(docs[0])
         if (docs[0].pass === pass){
           console.log('pass-----'+pass);
           console.log('docspass------'+pass);
