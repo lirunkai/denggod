@@ -21,7 +21,6 @@ router.post('/',function(req,res){
           req.session.username = username;
           return res.redirect('/message');
         } else {
-          res.flash('error','用户名或密码错误')
           return res.redirect('/login')
         }
       }
