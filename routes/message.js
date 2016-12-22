@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var User = require('../model/user.js');
 var Info = require('../model/info.js');
+var API = require('wechat-api');
+var api = new API('wx60aeb0c0c8970d98','1fcf6b499cd23fc65bb881a410799afa');
+
+
 
 function getUser(req){
   var username = req.session.username;
@@ -52,6 +56,8 @@ router.get('/state/:shopnum',function(req,res){
 
 router.post('/state/:shopnum',function(req,res){
   var shopNum = req.params.shopnum;
+  var infoname = req.body.infoname;
+  var openid = req.body.openid;
   console.log(req.body)
   var infoState = req.body.infoState;
   var infoResult = req.body.infoResult;
@@ -60,6 +66,29 @@ router.post('/state/:shopnum',function(req,res){
     if(err){
       console.log(err)
     } else {
+      var templateId = 'UDm0rsiapSNz6hQE471dKsRGWuPFtCDKO1TZgQhEKkA'; //模板id
+      var url = 'http://d.zhongpinhappy.cn/showinfo/'+shopNum;    //返回的url
+      var data = {
+        "first" : {
+          "value": shopNum
+        },
+        "keyword1": {
+          "value":  infoname
+        },
+        "keyword2": {
+          "value": infoResult
+        },
+        "remark": {
+          "value": "点击查看详情"
+        }
+      }   //使用的参数
+      api.sendTemplate(openid,templateId,url,data,function(err,result){
+        if(err){
+          console.log("err-------"+err)
+        } else {
+          console.log('success----'+result)
+        }
+      })
       res.redirect('/message')
     }
   })

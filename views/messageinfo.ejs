@@ -1,5 +1,7 @@
 <%- include('header') %>
   <form action="/message/state/<%= infoShopNum %>" method="post">
+    <input type="hidden" value="<%= openid %>" name="openid"/>
+    <input type="hidden" value="<%= infoname %>" name="infoname" />
   <div class="weui-cells">
     <div class="weui-cell">
       <h4 class="weui-cell__hd">订单信息</h4>
