@@ -21,21 +21,22 @@ router.post('/', function(req, res, next){
   var infoCreateTime = count.getFullYear()+'-'+(count.getMonth()+1)+'-'+count.getDate();
   var info = new Info({
     openid:  openid,
-    infoarea: req.body.infoarea,
-    infoname: req.body.infoname,
-    infocard: req.body.infocard,
-    infocode: req.body.infocode,
-    infoloan: req.body.infoloan,
-    infofile: req.files,
-    infoHomeType: req.body.infoHomeType,
-    infoHomeNumber: req.body.infoHomeNumber,
-    infoDiYa: req.body.infoDiYa,
+    infoarea: req.fields.infoarea,
+    infoname: req.fields.infoname,
+    infocard: req.fields.infocard,
+    infocode: req.fields.infocode,
+    infoloan: req.fields.infoloan,
+    infofile: req.fields.infofile.path.split(path.sep).pop(),
+    infoHomeType: req.fields.infoHomeType,
+    infoHomeNumber: req.fields.infoHomeNumber,
+    infoDiYa: req.fields.infoDiYa,
     infoShopNum: infoShopNum,
     infoCreateTime: infoCreateTime,
     infoState: '进行中',
     infoReason: '正在处理',
     infoResult: '审核中'
   })
+  consoel.log(req.fields)
   info.save(function(err){
     if(err){
       console.log('baocunshibai-----------'+err)
