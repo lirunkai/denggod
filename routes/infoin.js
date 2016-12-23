@@ -3,6 +3,16 @@ var router = express.Router();
 var Info = require('../model/info.js')
 var multer = require('multer')
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+var upload = multer({ storage: storage })
+
 
 router.get('/', function(req, res, next){
   if( req.session.openid ) {
@@ -13,23 +23,28 @@ router.get('/', function(req, res, next){
 
 })
 
-router.post('/', function(req, res, next){
+router.post('/', upload.array('infofile',3),function(req, res, next){
   var openid = req.session.openid;
   console.log(openid+'-----openid')
   var count = new Date();
   var infoShopNum = count.getTime();
   var infoCreateTime = count.getFullYear()+'-'+(count.getMonth()+1)+'-'+count.getDate();
+  var infofile = [];
+  for(var i =0; i<req.files.length; i++){
+    infofile[i] = req.files[i].filename;
+  }
+  console.log(infofile)
   var info = new Info({
     openid:  openid,
-    infoarea: req.fields.infoarea,
-    infoname: req.fields.infoname,
-    infocard: req.fields.infocard,
-    infocode: req.fields.infocode,
-    infoloan: req.fields.infoloan,
-    infofile: req.fields.infofile.path.split(path.sep).pop(),
-    infoHomeType: req.fields.infoHomeType,
-    infoHomeNumber: req.fields.infoHomeNumber,
-    infoDiYa: req.fields.infoDiYa,
+    infoarea: req.body.infoarea,
+    infoname: req.body.infoname,
+    infocard: req.body.infocard,
+    infocode: req.body.infocode,
+    infoloan: req.body.infoloan,
+    infofile: infofile,
+    infoHomeType: req.body.infoHomeType,
+    infoHomeNumber: req.body.infoHomeNumber,
+    infoDiYa: req.body.infoDiYa,
     infoShopNum: infoShopNum,
     infoCreateTime: infoCreateTime,
     infoState: '进行中',
