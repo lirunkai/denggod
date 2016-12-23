@@ -51,7 +51,7 @@ router.post('/', upload.array('infofile',3),function(req, res, next){
     infoReason: '正在处理',
     infoResult: '审核中'
   })
-  consoel.log(req.fields)
+  console.log(req.fields)
   info.save(function(err){
     if(err){
       console.log('baocunshibai-----------'+err)
