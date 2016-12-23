@@ -56,12 +56,12 @@ router.get('/state/:shopnum',function(req,res){
 
 router.post('/state/:shopnum',function(req,res){
   var shopNum = req.params.shopnum;
-  var infoname = req.fields.infoname;
-  var openid = req.fields.openid;
-  console.log(req.fields)
-  var infoState = req.fields.infoState;
-  var infoResult = req.fields.infoResult;
-  var infoReason = req.fields.infoReason;
+  var infoname = req.body.infoname;
+  var openid = req.body.openid;
+  console.log(req.body)
+  var infoState = req.body.infoState;
+  var infoResult = req.body.infoResult;
+  var infoReason = req.body.infoReason;
   Info.update({infoShopNum:shopNum},{infoState:infoState,infoResult:infoResult,infoReason:infoReason},function(err,docs){
     if(err){
       console.log(err)

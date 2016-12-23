@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
@@ -41,10 +41,6 @@ app.use(session({
 // flash 中间价，用来显示通知
 app.use(flash());
 
-app.use(require("express-formidable")({
-  uploadDir: path.join(__dirname,"public/images"),
-  keepExtensions: true
-}))
 // 处理表单及文件上传的中间件
 // app.use(require('express-formidable')({
 //   uploadDir: path.join(__dirname, 'public/img'),// 上传文件目录

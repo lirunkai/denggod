@@ -36,9 +36,9 @@ router.get('/',function(req, res){
 
 router.post('/', function(req, res) {
   //将用户数据写入数据库
-  console.log(req.fields);
-  var username = req.fields.username;
-  var phone = req.fields.phone;
+  console.log(req.body);
+  var username = req.body.username;
+  var phone = req.body.phone;
   var openid = req.session.openid;
   var user = new User({
     username: username,

@@ -7,8 +7,8 @@ router.get('/',function(req,res){
 })
 
 router.post('/',function(req,res){
-  var pass = req.fields.pass;
-  var username = req.fields.username;
+  var pass = req.body.pass;
+  var username = req.body.username;
   Admin.find({username:username},function(err,docs){
     if(err){
       console.log('err-----'+err);
