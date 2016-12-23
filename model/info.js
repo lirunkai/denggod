@@ -9,7 +9,7 @@ var InfoSchema = new Schema({
   infocard: Number,
   infocode: String,
   infoloan: Number,
-  infofile: String,
+  infofile: Array,
   infoHomeType: String,
   infoHomeNumber: String,
   infoDiYa: String,
