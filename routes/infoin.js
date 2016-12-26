@@ -18,7 +18,7 @@ router.get('/', function(req, res, next){
   if( req.session.openid ) {
     var count = new Date();
     var nowd = count.getFullYear()+''+(count.getMonth()+1)+''+count.getDate();
-    var s = 'HW'+req.session.openid.slice(1,6);
+    var s = 'HW'+req.session.openid.slice(1,6).toUpperCase();
     res.render('infoin',{"codeji":s})
   } else {
     return res.redirect('/')
