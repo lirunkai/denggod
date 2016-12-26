@@ -15,7 +15,9 @@ var upload = multer({ storage: storage })
 
 
 router.get('/', function(req, res, next){
-  var s = Math.random().toString(36).substr(2);
+  var count = new Date();
+  var nowd = count.getFullYear()+''+(count.getMonth()+1)+''+count.getDate();
+  var s = 'HW'+nowd+Math.random().toString(36).substr(2);
   if( req.session.openid ) {
     res.render('infoin',{"codeji":s})
   } else {
@@ -37,6 +39,7 @@ router.post('/', upload.array('infofile',3),function(req, res, next){
   console.log(infofile)
   var info = new Info({
     openid:  openid,
+    infotype: req.body.infotype,
     infoarea: req.body.infoarea,
     infoname: req.body.infoname,
     infocard: req.body.infocard,
