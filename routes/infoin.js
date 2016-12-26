@@ -15,10 +15,10 @@ var upload = multer({ storage: storage })
 
 
 router.get('/', function(req, res, next){
-  var count = new Date();
-  var nowd = count.getFullYear()+''+(count.getMonth()+1)+''+count.getDate();
-  var s = 'HW'+nowd+Math.random().toString(36).substr(2);
   if( req.session.openid ) {
+    var count = new Date();
+    var nowd = count.getFullYear()+''+(count.getMonth()+1)+''+count.getDate();
+    var s = 'HW'+nowd+req.session.openid.slice(1,6);
     res.render('infoin',{"codeji":s})
   } else {
     return res.redirect('/')
