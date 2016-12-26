@@ -51,7 +51,7 @@ router.post('/', upload.array('infofile',3),function(req, res, next){
     infoReason: '正在处理',
     infoResult: '审核中'
   })
-  console.log(req.fields)
+  console.log(req.body.infoarea)
   info.save(function(err){
     if(err){
       console.log('baocunshibai-----------'+err)
@@ -62,7 +62,7 @@ router.post('/', upload.array('infofile',3),function(req, res, next){
 })
 
 router.get('/success', function (req, res, next) {
-  Info.find({openid: req.session.openid},null,{sort:{infoCreateTime:-1},limit:1},function(err,content){
+  Info.find({openid: req.session.openid},null,{sort:{infoShopNum:-1},limit:1},function(err,content){
     if(err){
       req.flash('error',err)
       res.redirect('/home')
