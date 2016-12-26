@@ -15,8 +15,9 @@ var upload = multer({ storage: storage })
 
 
 router.get('/', function(req, res, next){
+  var s = Math.random().toString(36).substr(2);
   if( req.session.openid ) {
-    res.render('infoin')
+    res.render('infoin',{"codeji":s})
   } else {
     return res.redirect('/')
   }

@@ -9,6 +9,10 @@ div{
   text-align:right;
 }
 
+.hide{
+  display: none;
+}
+
 .text_center{
   text-align:center;
 }

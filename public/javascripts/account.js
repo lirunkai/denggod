@@ -106,3 +106,10 @@ $(function(){
       $('.js-alert').css('display','none')
     })
 });
+
+$(function(){
+  $('.js_now_change').click(function(){
+    $('.js_nowshow').addClass('hide');
+    $('.js_nowhide').removeClass('hide');
+  })
+})
