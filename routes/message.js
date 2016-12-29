@@ -30,7 +30,7 @@ router.get('/',function(req,res){
   }
 })
 
-router.get('/message/search/show/:id',function(req,res){
+router.get('/search/show/:id',function(req,res){
   var search = decodeURI(req.params.id);
   Info.find({"$or":[{"infoname":search},{"infoarea":search}]},function(err,docs){
     if(err){
