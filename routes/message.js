@@ -31,7 +31,7 @@ router.get('/',function(req,res){
 })
 
 router.get('/message/search/show/:id',function(req,res){
-  var search = req.params.id;
+  var search = decodeURI(req.params.id);
   Info.find({"$or":[{"infoname":search},{"infoarea":search}]},function(err,docs){
     if(err){
       console.log(err);
@@ -42,7 +42,7 @@ router.get('/message/search/show/:id',function(req,res){
 })
 
 router.post('/search',function(req,res){
-  var search = req.body.search;
+  var search = encodeURI(req.body.search);
   res.redirect('/message/search/show/'+search+'');
 })
 
