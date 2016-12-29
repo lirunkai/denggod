@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Info = require('../model/info.js')
 var multer = require('multer')
+var User = require('../model/user.js')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -16,8 +17,19 @@ var upload = multer({ storage: storage })
 
 router.get('/', function(req, res, next){
   if( req.session.openid ) {
-    var s = 'HW'+req.session.openid.slice(6,14).toUpperCase();
-    res.render('infoin',{"codeji":s})
+    User.find({openid:req.session.openid},function(err,docs){
+      if(err){
+        console.log(err);
+        return res.redirect('/')
+      } else {
+        if(docs.length == 0){
+          return res.redirect('/')
+        } else {
+          var s = 'HW'+req.session.openid.slice(6,14).toUpperCase();
+          res.render('infoin',{"codeji":s})
+        }
+      }
+    })
   } else {
     return res.redirect('/')
   }
