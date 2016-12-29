@@ -42,12 +42,8 @@ router.get('/message/search/show/:id',function(req,res){
 })
 
 router.post('/search',function(req,res){
-  if(err){
-    console.log('searcherr')
-  } else {
-    var search = req.body.search;
-    res.redirect('/message/search/show/'+search+'');
-  }
+  var search = req.body.search;
+  res.redirect('/message/search/show/'+search+'');
 })
 
 
