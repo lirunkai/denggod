@@ -41,6 +41,10 @@ router.get('/search/show/:id',function(req,res){
   })
 })
 
+router.get('/search/show',function(req,res){
+  res.redirect('/message');
+})
+
 router.post('/search',function(req,res){
   var search = encodeURI(req.body.search);
   res.redirect('/message/search/show/'+search+'');
