@@ -1,4 +1,10 @@
 <%- include('header') %>
+
+<% if(docs.length == 0 ){%>
+  <p>尚无此用户订单</p>
+<% }%>
+
+
 <% docs.forEach(function(doc){ %>
   <a class="weui-tab__panel" href="/message/state/<%= doc.infoShopNum %>">
     <div class="weui-cells">
