@@ -30,6 +30,27 @@ router.get('/',function(req,res){
   }
 })
 
+router.get('/message/search/show/:id',function(req,res){
+  var search = req.params.id;
+  Info.find({"$or":[{"infoname":search},{"infoarea":search}]},function(err,docs){
+    if(err){
+      console.log(err);
+    } else {
+      res.render('messagestate',{docs:docs})
+    }
+  })
+})
+
+router.post('/search',function(req,res){
+  if(err){
+    console.log('searcherr')
+  } else {
+    var search = req.body.search;
+    res.redirect('/message/search/show/'+search+'');
+  }
+})
+
+
 
 
 router.get('/:id',function(req,res){

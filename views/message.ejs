@@ -1,5 +1,10 @@
 <%- include('header') %>
 
+<form action="/message/search" method="post">
+  <input type="text" name="search" />
+  <input type="submit" value="搜索" />
+</form>
+
 <% docs.forEach(function(doc){%>
   <div class="weui-cells">
     <div class="weui-cell weui-flex">
