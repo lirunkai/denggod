@@ -119,11 +119,12 @@
     <article class="weui-article">
       <section>
         <h3>图片</h3>
-        <p>
-          <img src="/img/<%= infofile[0] %>" alt="">
-        </p>
+        <% infofile.forEach(function(info,index,arr){ %>
+          <p>
+            <img src="/img/<%= infofile[0] %>" alt="">
+          </p>
+        <% }) %>
       </section>
-
     </article>
   </div>
   <div class="weui-cells">
