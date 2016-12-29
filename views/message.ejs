@@ -1,9 +1,20 @@
 <%- include('header') %>
 
-<form action="/message/search" method="post">
-  <input type="text" name="search" />
-  <input type="submit" value="搜索" />
-</form>
+
+<div class="weui-cells">
+  <form action="/message/search" method="post" class="weui-cell">
+    <div class="weui-cell__hd">
+      <label class="weui-label">搜索借款人</label>
+    </div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="text" placeholder="请输入借款人姓名" name="search" />
+    </div>
+    <div class="weui-cell__ft">
+      <input type="submit" value="搜索" class="weui-vcode-btn" />
+    </div>
+  </form>
+</div>
+
 
 <% docs.forEach(function(doc){%>
   <div class="weui-cells">
