@@ -118,11 +118,30 @@ $(function(){
       return pass;
     }
   }
+  function checkPhone (phone) {
+    var pass = true;
+    var pattern = /^1[34578]\d{9}$/;
+    if( pattern.test(phone) ) {
+      return pass;
+    } else {
+      pass = false;
+      return pass;
+    }
+  }
   $('.js_now_change').click(function(){
     var c = $('#js_infocard').val();
-    if(IdentityCodeValid(c)){
+    var p = $('#js_infophone').val();
+    var chc = IdentityCodeValid(c);
+    var chp = checkPhone(p);
+    if ( chc && chp ) {
       $('.js_nowshow').addClass('hide');
       $('.js_nowhide').removeClass('hide');
+    } else if ( chc == true && chp != true){
+      alert('请输入正确的手机号')
+    } else if ( chc != true && chp == true){
+      alert('请输入正确的身份证')
+    } else {
+      alert('请认真填写')
     }
   })
 })
