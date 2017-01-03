@@ -19,7 +19,8 @@ var InfoSchema = new Schema({
   infoReason: String,
   openid: String,
   infoResult: String,
-  infoarea: String
+  infoarea: String,
+  infophone: String
 })
 
 var InfoModel = db.model('Info',InfoSchema);

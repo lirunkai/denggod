@@ -55,6 +55,7 @@ router.post('/', upload.array('infofile',3),function(req, res, next){
     infocard: req.body.infocard,
     infocode: req.body.infocode,
     infoloan: req.body.infoloan,
+    infophone: req.body.infophone,
     infofile: infofile,
     infoHomeType: req.body.infoHomeType,
     infoHomeNumber: req.body.infoHomeNumber,
