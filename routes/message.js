@@ -65,14 +65,18 @@ router.get('/:id',function(req,res){
 })
 
 router.get('/state/:shopnum',function(req,res){
-  var shopNum = req.params.shopnum;
-  Info.find({infoShopNum:shopNum},function(err,docs){
-    if(err){
-      console.log(err)
-    }else{
-      res.render('messageinfo',docs[0])
-    }
-  })
+  if(getUser(req)){
+    var shopNum = req.params.shopnum;
+    Info.find({infoShopNum:shopNum},function(err,docs){
+      if(err){
+        console.log(err)
+      }else{
+        res.render('messageinfo',docs[0])
+      }
+    })
+  } else {
+    return res.redirect('/login')
+  }
 })
 
 router.post('/state/:shopnum',function(req,res){
