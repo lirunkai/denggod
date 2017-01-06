@@ -3,6 +3,9 @@ var router = express.Router();
 var Info = require('../model/info.js')
 var multer = require('multer')
 var User = require('../model/user.js')
+var API = require('wechat-api');
+var api = new API('wx60aeb0c0c8970d98','1fcf6b499cd23fc65bb881a410799afa');
+
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -71,6 +74,32 @@ router.post('/', upload.array('infofile',3),function(req, res, next){
     if(err){
       console.log('baocunshibai-----------'+err)
     } else {
+      var templateId = 'I17Ttmym1YiGqMvJV6GzEJNYJqn1MGvlp8CZN5WLYog'; //模板id
+      var url = 'http://d.zhongpinhappy.cn/showinfo/'+infoShopNum;    //返回的url
+      var data = {
+        "first" : {
+          "value": '申请贷款'
+        },
+        "keyword1": {
+          "value":  req.body.infoname
+        },
+        "keyword2": {
+          "value": req.body.infophone
+        },
+        "keyword3": {
+          "value": req.body.loan
+        },
+        "remark": {
+          "value": "点击查看详情"
+        }
+      }   //使用的参数
+      api.sendTemplate('okWlWwdSROvEq7E4bWRE4rwvLGcQ',templateId,url,data,function(err,result){
+        if(err){
+          console.log("err-------"+err)
+        } else {
+          console.log('success----'+result)
+        }
+      })
       return res.redirect('/infoin/success')
     }
   })
