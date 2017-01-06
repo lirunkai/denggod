@@ -99,7 +99,7 @@ router.post('/', upload.array('infofile',3),function(req, res, next){
           "value": "点击查看详情"
         }
       }   //使用的参数
-      api.sendTemplate('okWlWwe1H6gN-_QWEUObMnEAP6Ao',templateId,url,data,function(err,result){
+      api.sendTemplate('okWlWwQobsP5pN-1vSc5kxVJAyEU',templateId,url,data,function(err,result){
         if(err){
           console.log("err-------"+err)
         } else {
